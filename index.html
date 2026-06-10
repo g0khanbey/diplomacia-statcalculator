@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diplomacia Beceri Hesaplayıcı | Kışla, Savaş Teknikleri, Bilim İnsanı Yükseltme Maliyeti</title>
+<meta name="description" content="Diplomacia (diplomacia.com.tr) beceri yükseltme hesaplayıcısı. Kışla, Savaş Teknikleri ve Bilim İnsanı becerileri için para ve elmas maliyetini, toplam bekleme süresini gün/saat/dakika olarak hesapla. Eğitim indeksi ve İlmiye sınıfı bonusu dahil.">
+<meta name="keywords" content="diplomacia, diplomacia beceri hesaplayıcı, diplomacia kışla, diplomacia savaş teknikleri, diplomacia bilim insanı, diplomacia elmas hesaplama, diplomacia yükseltme maliyeti, diplomacia.com.tr">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://diplomaciacalcutor.blogspot.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diplomacia Beceri Hesaplayıcı">
+<meta property="og:description" content="Kışla, Savaş Teknikleri ve Bilim İnsanı becerilerinin para/elmas maliyetini ve bekleme süresini anında hesapla.">
+<meta property="og:url" content="https://diplomaciacalcutor.blogspot.com/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Diplomacia Beceri Hesaplayıcı">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Diplomacia Beceri Hesaplayıcı">
+<meta name="twitter:description" content="Diplomacia beceri yükseltme maliyeti ve süresi hesaplayıcısı.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Diplomacia Beceri Hesaplayıcı",
+  "url": "https://diplomaciacalcutor.blogspot.com/",
+  "description": "Diplomacia oyunundaki Kışla, Savaş Teknikleri ve Bilim İnsanı becerilerinin yükseltme maliyetini (para/elmas) ve bekleme süresini hesaplayan ücretsiz araç.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "tr",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TRY"},
+  "about": {
+    "@type": "VideoGame",
+    "name": "Diplomacia",
+    "url": "https://diplomacia.com.tr/"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12100d;
+  --panel:#1c1914;
+  --panel2:#221e17;
+  --line:#3a3326;
+  --gold:#d4a843;
+  --gold-dim:#8a7335;
+  --ink:#e8e0cf;
+  --muted:#9a917c;
+  --green:#7fb069;
+  --diamond:#6fc3df;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;
+  min-height:100vh;
+  padding:24px 16px 60px;
+  background-image:radial-gradient(ellipse at 50% -10%, #2a2418 0%, transparent 60%);
+}
+.wrap{max-width:520px;margin:0 auto}
+h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(22px,4vw,30px);
+  color:var(--gold);
+  text-align:center;
+  letter-spacing:.06em;
+}
+.sub{text-align:center;color:var(--muted);font-size:13px;margin:6px 0 24px}
+.sub a{color:var(--gold-dim);text-decoration:none}
+.sub a:hover{color:var(--gold)}
+footer{max-width:520px;margin:36px auto 0;font-size:12px;color:var(--muted);line-height:1.7;text-align:center;border-top:1px solid var(--line);padding-top:18px}
+footer a{color:var(--gold-dim);text-decoration:none}
+footer h2{font-size:13px;color:var(--ink);font-weight:600;margin-bottom:6px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:18px;display:flex;flex-direction:column;gap:14px;
+}
+label.fld{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+select, input[type=number]{
+  background:var(--panel2);border:1px solid var(--line);border-radius:6px;
+  color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:15px;
+  padding:9px 10px;width:100%;
+}
+input[type=number]{text-align:center}
+select:focus, input:focus{outline:1px solid var(--gold-dim);border-color:var(--gold-dim)}
+.effect{font-size:12px;color:var(--gold-dim);margin-top:-8px;min-height:14px}
+.lvls{display:flex;gap:10px;align-items:flex-end}
+.lvls label{flex:1}
+.arrow{color:var(--gold-dim);font-family:'IBM Plex Mono',monospace;padding-bottom:11px}
+.opts{display:flex;flex-wrap:wrap;gap:14px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.opts label{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.opts input[type=number]{width:64px}
+.toggle{
+  position:relative;width:42px;height:22px;background:var(--panel2);
+  border:1px solid var(--line);border-radius:11px;cursor:pointer;flex-shrink:0;
+  transition:background .15s;
+}
+.toggle::after{
+  content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;
+  border-radius:50%;background:var(--muted);transition:all .15s;
+}
+.toggle.on{background:var(--gold-dim)}
+.toggle.on::after{left:22px;background:var(--gold)}
+.redline{font-size:12px;color:var(--green);font-family:'IBM Plex Mono',monospace;min-height:15px}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+@media(max-width:440px){.results{grid-template-columns:1fr}}
+.rcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.rcard .tag{font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.rcard .row{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:4px 0}
+.v{font-weight:600}
+.v.money{color:var(--gold)}
+.v.dia{color:var(--diamond)}
+.v.time{color:var(--green)}
+.hint{margin-top:14px;font-size:12px;color:var(--muted);text-align:center;min-height:15px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Diplomacia Beceri Hesaplay&#305;c&#305;</h1>
+  <p class="sub"><a href="https://diplomacia.com.tr/" target="_blank" rel="noopener">Diplomacia</a> i&#231;in para / elmas maliyeti ve toplam bekleme s&#252;resi</p>
+
+  <div class="card">
+    <label class="fld">Beceri
+      <select id="skill">
+        <option value="" selected>&#8212; Beceri se&#231; &#8212;</option>
+        <option value="0">K&#305;&#351;la</option>
+        <option value="1">Sava&#351; Teknikleri</option>
+        <option value="2">Bilim &#304;nsan&#305;</option>
+      </select>
+    </label>
+    <div class="effect" id="effect"></div>
+
+    <div class="lvls">
+      <label class="fld">Mevcut seviye
+        <input type="number" id="from" min="1" max="998" placeholder="0">
+      </label>
+      <span class="arrow">&#8594;</span>
+      <label class="fld">Hedef seviye
+        <input type="number" id="to" min="2" max="999" placeholder="0">
+      </label>
+    </div>
+
+    <div class="opts">
+      <label>E&#287;itim indeksi <input type="number" id="egitim" min="0" max="15" placeholder="0"></label>
+      <br><br><label><div class="toggle" id="ilmiye"></div> &#304;lmiye s&#305;n&#305;f&#305; (&#8722;%10)</label>
+      <label><div class="toggle" id="premium"></div> Premium (&#8722;%25)</label>
+
+    </div>
+    <div class="redline" id="redline"></div>
+  </div>
+
+  <div class="results">
+    <div class="rcard">
+      <div class="tag">&#128176; Para ile</div>
+      <div class="row"><span>Maliyet</span><span class="v money" id="pc">&#8212;</span></div>
+      <div class="row"><span>S&#252;re</span><span class="v time" id="pt">&#8212;</span></div>
+    </div>
+    <div class="rcard">
+      <div class="tag">&#128142; Elmas ile</div>
+      <div class="row"><span>Maliyet</span><span class="v dia" id="dc">&#8212;</span></div>
+      <div class="row"><span>S&#252;re</span><span class="v time" id="dt">&#8212;</span></div>
+    </div>
+  </div>
+  <p class="hint" id="hint"></p>
+</div>
+
+<footer>
+  <h2>Diplomacia Beceri Sistemi Nas&#305;l &#199;al&#305;&#351;&#305;r?</h2>
+  <p><a href="https://diplomacia.com.tr/" target="_blank" rel="noopener">Diplomacia</a> oyununda &#252;&#231; temel beceri vard&#305;r: K&#305;&#351;la (askeri g&#252;&#231; ve kapasite), Sava&#351; Teknikleri (askeri g&#252;&#231;) ve Bilim &#304;nsan&#305; (fabrika &#252;retim geliri). Her beceri maksimum 999. seviyeye kadar y&#252;kseltilebilir. Para ile y&#252;kseltme maliyeti mevcut seviye &#215; 250'dir; elmas ile y&#252;kseltme daha pahal&#305;d&#305;r ancak bekleme s&#252;resi 4 kat k&#305;sad&#305;r. B&#246;lge e&#287;itim indeksi (puan ba&#351;&#305;na %2, maksimum %30) ve &#304;lmiye s&#305;n&#305;f&#305; bonusu (%10) bekleme s&#252;relerini azalt&#305;r. Bu hesaplay&#305;c&#305; se&#231;ti&#287;in beceri i&#231;in hedef seviyeye ula&#351;man&#305;n toplam para, elmas ve zaman maliyetini g&#246;sterir.</p>
+</footer>
+
+<script>
+//<![CDATA[
+var EFFECTS = [
+  'Askeri g\u00FC\u00E7 + kapasite \u00B7 seviye ba\u015F\u0131na +%0.25',
+  'Askeri g\u00FC\u00E7 \u00B7 seviye ba\u015F\u0131na +%0.5',
+  'Fabrika \u00FCretim geliri \u00B7 seviye ba\u015F\u0131na +%0.25'
+];
+
+var $ = function(id){ return document.getElementById(id); };
+var fmt = function(n){ return n.toLocaleString('tr-TR'); };
+
+function fmtTime(min){
+  min = Math.round(min);
+  var d = Math.floor(min/1440), h = Math.floor((min%1440)/60), m = min%60;
+  var parts = [];
+  if(d) parts.push(d+' g\u00FCn');
+  if(h) parts.push(h+' sa');
+  if(m || !parts.length) parts.push(m+' dk');
+  return parts.join(' ');
+}
+
+function update(){
+  var sk = $('skill').value;
+  $('effect').textContent = sk !== '' ? EFFECTS[+sk] : '';
+
+  var from = +$('from').value;
+  var to = +$('to').value;
+  var eg = Math.max(0, +$('egitim').value || 0);
+  var egRed = Math.min(eg*2, 30);
+  var ilm = $('ilmiye').classList.contains('on') ? 10 : 0;
+  var prem = $('premium').classList.contains('on') ? 25 : 0;
+  var red = egRed + ilm + prem;
+  var mult = 1 - red/100;
+  $('redline').textContent = red>0 ? 'Cooldown azaltma: \u2212%' + red : '';
+
+  function reset(msg){
+    ['pc','pt','dc','dt'].forEach(function(id){ $(id).textContent = '\u2014'; });
+    $('hint').textContent = msg;
+  }
+
+  if(sk === '') return reset('\u00D6nce beceri se\u00E7.');
+  if(!from || !to) return reset('Mevcut ve hedef seviyeyi gir.');
+  if(to <= from) return reset('Hedef seviye mevcut seviyeden b\u00FCy\u00FCk olmal\u0131.');
+  if(to > 999) return reset('Maksimum seviye 999.');
+
+  var pc=0, pt=0, dc=0, dt=0;
+  for(var L=from; L<to; L++){
+    pc += L*250;
+    pt += Math.max(1, 18*Math.pow(L/50,2.5))*mult;
+    var base = Math.max(5, Math.ceil(L/10)*5);
+    dc += Math.ceil(base*1.5);
+    dt += Math.max(1, 4.5*Math.pow(L/50,2.5))*mult;
+  }
+  $('pc').textContent = fmt(pc);
+  $('pt').textContent = fmtTime(pt);
+  $('dc').textContent = fmt(dc);
+  $('dt').textContent = fmtTime(dt);
+  $('hint').textContent = (to-from) + ' seviye y\u00FCkseltme (' + from + ' \u2192 ' + to + ')';
+}
+
+var toggles = document.querySelectorAll('.toggle');
+for(var i=0; i<toggles.length; i++){
+  toggles[i].addEventListener('click', function(){ this.classList.toggle('on'); update(); });
+}
+['skill','from','to','egitim'].forEach(function(id){ $(id).addEventListener('input', update); });
+update();
+//]]>
+</script>
+</body>
+</html>
