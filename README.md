@@ -2,7 +2,7 @@
 
 [Diplomacia](https://diplomacia.com.tr/) oyunundaki **Kışla**, **Savaş Teknikleri** ve **Bilim İnsanı** becerilerinin yükseltme maliyetini ve bekleme süresini hesaplayan ücretsiz web aracı.
 
-🔗 **Canlı:** https://diplomaciacalcutor.blogspot.com/
+🔗 **Canlı:** https://g0khanbey.github.io/diplomacia-statcalculator/
 
 ## Özellikler
 
