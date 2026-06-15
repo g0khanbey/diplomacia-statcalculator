@@ -116,9 +116,27 @@ select:focus, input:focus{outline:1px solid var(--gold-dim);border-color:var(--g
 .v.dia{color:var(--diamond)}
 .v.time{color:var(--green)}
 .hint{margin-top:14px;font-size:12px;color:var(--muted);text-align:center;min-height:15px}
+  
+  
+  #google_translate_element .goog-te-gadget{font-family:'IBM Plex Sans',sans-serif;font-size:0;color:transparent}
+#google_translate_element .goog-te-gadget-simple{
+  background:var(--panel2);border:1px solid var(--line);border-radius:6px;
+  padding:4px 8px;font-size:12px;
+}
+#google_translate_element .goog-te-gadget-simple span{color:var(--ink)}
+#google_translate_element img{display:none}
+.goog-te-banner-frame{display:none!important}
+body{top:0!important}
 </style>
 </head>
 <body>
+<div style="text-align:right;margin-bottom:10px">
+  <select id="langsel" style="width:auto;font-size:12px;padding:5px 8px">
+    <option value="">&#127760; Dil / Language</option>
+  </select>
+</div>
+<div id="google_translate_element" style="display:none"></div>
+
 <div class="wrap">
   <h1>Diplomacia Beceri Hesaplay&#305;c&#305;</h1>
   <p class="sub"><a href="https://diplomacia.com.tr/" target="_blank" rel="noopener">Diplomacia</a> i&#231;in para / elmas maliyeti ve toplam bekleme s&#252;resi</p>
@@ -185,12 +203,14 @@ var $ = function(id){ return document.getElementById(id); };
 var fmt = function(n){ return n.toLocaleString('tr-TR'); };
 
 function fmtTime(min){
-  min = Math.round(min);
-  var d = Math.floor(min/1440), h = Math.floor((min%1440)/60), m = min%60;
+  var sec = Math.round(min*60);
+  var d = Math.floor(sec/86400), h = Math.floor((sec%86400)/3600),
+      m = Math.floor((sec%3600)/60), s = sec%60;
   var parts = [];
   if(d) parts.push(d+' g\u00FCn');
   if(h) parts.push(h+' sa');
-  if(m || !parts.length) parts.push(m+' dk');
+  if(m) parts.push(m+' dk');
+  if(s || !parts.length) parts.push(s+' sn');
   return parts.join(' ');
 }
 
@@ -201,7 +221,7 @@ function update(){
   var from = +$('from').value;
   var to = +$('to').value;
   var eg = Math.max(0, +$('egitim').value || 0);
-  var egRed = Math.min(eg*2, 30);
+  var egRed = eg >= 10 ? 30 : eg*2;
   var ilm = $('ilmiye').classList.contains('on') ? 10 : 0;
   var prem = $('premium').classList.contains('on') ? 25 : 0;
   var red = egRed + ilm + prem;
@@ -241,5 +261,31 @@ for(var i=0; i<toggles.length; i++){
 update();
 //]]>
 </script>
+  
+  
+<script>
+//<![CDATA[
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'tr',autoDisplay:false},'google_translate_element');
+  var t = setInterval(function(){
+    var combo = document.querySelector('.goog-te-combo');
+    if(!combo || !combo.options.length) return;
+    clearInterval(t);
+    var sel = document.getElementById('langsel');
+    for(var i=1; i<combo.options.length; i++){
+      var o = document.createElement('option');
+      o.value = combo.options[i].value;
+      o.textContent = combo.options[i].text;
+      sel.appendChild(o);
+    }
+    sel.addEventListener('change', function(){
+      combo.value = this.value;
+      combo.dispatchEvent(new Event('change'));
+    });
+  }, 300);
+}
+//]]>
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
